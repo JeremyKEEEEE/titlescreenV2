@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerAwarenessController : MonoBehaviour
 {
-    public bool AwareIfPlayer {get; private set;}
+    public bool AwareOfPlayer {get; private set;}
     public Vector2 DirectionToPlayer {get; private set;}
     [SerializeField]
-    private float _playerAvarenessDistance;
+    private float _playerAwarenessDistance;
     private Transform _player;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -21,5 +22,14 @@ public class PlayerAwarenessController : MonoBehaviour
         Vector2 enemyToPlayerVector = _player.position - transform.position;
         DirectionToPlayer = enemyToPlayerVector.normalized;
     
+
+        if(enemyToPlayerVector.magnitude <= _playerAwarenessDistance)
+        {
+            AwareOfPlayer = true;
+        }
+        else
+        {
+            AwareOfPlayer = false;
+        }
     }
 }
