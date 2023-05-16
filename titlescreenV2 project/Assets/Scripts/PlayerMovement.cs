@@ -10,10 +10,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float _rotationSpeed;
 
+
     private Rigidbody2D _rigidbody;
     private Vector2 _movementInput;
     private Vector2 _smoothedMovementInput; 
     private Vector2 _movementInputSmoothVelocity; 
+
     
     private void Awake()
     {
@@ -33,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
         );
         _rigidbody.velocity = _smoothedMovementInput * _speed;
     }
+
+    
 
     private void RotateInDirectionOfInput()
     {
